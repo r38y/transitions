@@ -31,6 +31,7 @@ class TestActiveModelBug < Test::Unit::TestCase
   end
 
   test "buggy" do
-    TrafficLight.select("id, name").where("updated_at = ?", @light.updated_at)
+    result = TrafficLight.select("id, name").where("updated_at = ?", @light.updated_at)
+    puts result.inspect
   end
 end
